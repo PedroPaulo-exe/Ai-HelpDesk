@@ -1,13 +1,14 @@
 package com.pedro.helpdesk.classes;
 
 import com.pedro.helpdesk.enums.Perfil;
+import jakarta.persistence.Entity;
 import jakarta.persistence.OneToMany;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-
+@Entity
 public class Cliente extends Pessoa{
 
      private static final long serialVersionUID = 1L;

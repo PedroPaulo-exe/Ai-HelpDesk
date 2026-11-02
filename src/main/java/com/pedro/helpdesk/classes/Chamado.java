@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Entity
 public class Chamado implements Serializable {
 
-    @id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @JsonFormat(pattern = "dd/MM/yyyy")
