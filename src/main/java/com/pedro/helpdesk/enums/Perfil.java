@@ -2,7 +2,7 @@ package com.pedro.helpdesk.enums;
 
 public enum Perfil {
     ADMIN(0, "ROLE_ADMIN"),
-    USER(1, "ROLE_USER"),
+    CLIENTE(1, "ROLE_CLIENTE"),
     TECNICO(2, "ROLE_TECNICO");
 
     private int codigo;

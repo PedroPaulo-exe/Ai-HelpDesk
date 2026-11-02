@@ -1,0 +1,108 @@
+package com.pedro.helpdesk.classes;
+
+import java.time.LocalDate;
+
+public class Status {
+
+    private Integer id;
+    private LocalDate dataAbertura = LocalDate.now();
+    private LocalDate dataFechamento = LocalDate.now();
+    private String prioridade;
+    private Status Status;
+    private String titulo;
+    private String Observacao;
+
+    private Tecnico tecnico;
+    private Cliente cliente;
+
+    public Status(Integer id, LocalDate dataAbertura, LocalDate dataFechamento,
+                  String prioridade, Status status, String titulo, String observacao,
+                  Cliente cliente, Tecnico tecnico) {
+        super();
+        this.id = id;
+        this.dataAbertura = dataAbertura;
+        this.dataFechamento = dataFechamento;
+        this.prioridade = prioridade;
+        Status = status;
+        this.titulo = titulo;
+        Observacao = observacao;
+        this.cliente = cliente;
+        this.tecnico = tecnico;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDate getDataAbertura() {
+        return dataAbertura;
+    }
+
+    public void setDataAbertura(LocalDate dataAbertura) {
+        this.dataAbertura = dataAbertura;
+    }
+
+    public LocalDate getDataFechamento() {
+        return dataFechamento;
+    }
+
+    public void setDataFechamento(LocalDate dataFechamento) {
+        this.dataFechamento = dataFechamento;
+    }
+
+    public Status getStatus() {
+        return Status;
+    }
+
+    public void setStatus(Status status) {
+        Status = status;
+    }
+
+    public String getPrioridade() {
+        return prioridade;
+    }
+
+    public void setPrioridade(String prioridade) {
+        this.prioridade = prioridade;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getObservacao() {
+        return Observacao;
+    }
+
+    public void setObservacao(String observacao) {
+        Observacao = observacao;
+    }
+
+    public Tecnico getTecnico() {
+        return tecnico;
+    }
+
+    public void setTecnico(Tecnico tecnico) {
+        this.tecnico = tecnico;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+
+
+
+}
