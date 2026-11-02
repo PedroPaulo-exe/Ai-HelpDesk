@@ -1,10 +1,28 @@
 package com.pedro.helpdesk.classes;
 
 import com.pedro.helpdesk.enums.Perfil;
+import jakarta.persistence.OneToMany;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
+
 public class Cliente extends Pessoa{
+
+     private static final long serialVersionUID = 1L;
+
+    @OneToMany(mappedBy = "cliente")
+    private List<Chamado> Chamado = new ArrayList<>();
+
+    public List<Chamado> getChamado() {
+        return Chamado;
+    }
+
+    public void setChamado(List<Chamado> chamado) {
+        Chamado = chamado;
+    }
+
 
     public Cliente(){
         super();

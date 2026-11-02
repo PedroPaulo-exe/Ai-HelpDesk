@@ -1,21 +1,36 @@
 package com.pedro.helpdesk.classes;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pedro.helpdesk.enums.Status;
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class Status {
+@Entity
+public class Chamado implements Serializable {
 
+    @id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataAbertura = LocalDate.now();
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento = LocalDate.now();
     private String prioridade;
     private Status Status;
     private String titulo;
     private String Observacao;
 
+
+    @ManyToOne
+    @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    public Status(Integer id, LocalDate dataAbertura, LocalDate dataFechamento,
+    public Chamado(Integer id, LocalDate dataAbertura, LocalDate dataFechamento,
                   String prioridade, Status status, String titulo, String observacao,
                   Cliente cliente, Tecnico tecnico) {
         super();
@@ -101,8 +116,4 @@ public class Status {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-
-
-
 }
