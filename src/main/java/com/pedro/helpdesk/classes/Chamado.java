@@ -1,6 +1,7 @@
 package com.pedro.helpdesk.classes;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.pedro.helpdesk.enums.Prioridade;
 import com.pedro.helpdesk.enums.Status;
 import jakarta.persistence.*;
 
@@ -17,7 +18,7 @@ public class Chamado implements Serializable {
     private LocalDate dataAbertura = LocalDate.now();
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento = LocalDate.now();
-    private String prioridade;
+    private Prioridade prioridade;
     private Status Status;
     private String titulo;
     private String Observacao;
@@ -30,14 +31,12 @@ public class Chamado implements Serializable {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    public Chamado(Integer id, LocalDate dataAbertura, LocalDate dataFechamento,
-                  String prioridade, Status status, String titulo, String observacao,
-                  Cliente cliente, Tecnico tecnico) {
+    public Chamado(Integer id, Prioridade prioridade, Status status, String titulo
+                    , String observacao, Tecnico tecnico,
+                   Cliente cliente) {
         super();
         this.id = id;
-        this.dataAbertura = dataAbertura;
-        this.dataFechamento = dataFechamento;
-        this.prioridade = prioridade;
+        this.prioridade =  prioridade;
         Status = status;
         this.titulo = titulo;
         Observacao = observacao;
@@ -77,11 +76,11 @@ public class Chamado implements Serializable {
         Status = status;
     }
 
-    public String getPrioridade() {
+    public Prioridade getPrioridade() {
         return prioridade;
     }
 
-    public void setPrioridade(String prioridade) {
+    public void setPrioridade(Prioridade prioridade) {
         this.prioridade = prioridade;
     }
 

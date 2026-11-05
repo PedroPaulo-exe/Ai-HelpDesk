@@ -1,4 +1,7 @@
 package com.pedro.helpdesk.repository;
 
-public interface ClienteRepository {
+import com.pedro.helpdesk.classes.Cliente;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ClienteRepository extends JpaRepository<Cliente, Integer> {
 }

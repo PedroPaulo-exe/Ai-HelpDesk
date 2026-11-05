@@ -1,0 +1,18 @@
+[33m941fd52[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{0}: reset: moving to HEAD~1
+[33m5e8ae8e[m HEAD@{1}: reset: moving to HEAD~1
+[33m9a64d7e[m[33m ([m[1;31morigin/main[m[33m)[m HEAD@{2}: commit: Adicionando dados de service
+[33m5e8ae8e[m HEAD@{3}: commit: Adicionando dados de service
+[33m941fd52[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m HEAD@{4}: commit: feat: Adicionando conexao teste com JPA
+[33m50f956b[m HEAD@{5}: commit: feat: Adicionando annotations
+[33m576588e[m HEAD@{6}: commit: feat: Adicionando classes principais
+[33m0956845[m HEAD@{7}: commit: feat: Adicionando tipos (enums)
+[33mbaefdb2[m HEAD@{8}: pull origin main --allow-unrelated-histories: Merge made by the 'ort' strategy.
+[33m3c7ffd7[m HEAD@{9}: commit: Projeto inicial
+[33m2adfa28[m HEAD@{10}: checkout: moving from main to main
+[33m2adfa28[m HEAD@{11}: commit: Projeto inicial
+[33m8501818[m HEAD@{12}: Branch: renamed refs/heads/Main to refs/heads/main
+[33m8501818[m HEAD@{14}: Branch: renamed refs/heads/Main to refs/heads/Main
+[33m8501818[m HEAD@{16}: Branch: renamed refs/heads/Main to refs/heads/Main
+[33m8501818[m HEAD@{18}: Branch: renamed refs/heads/Main to refs/heads/Main
+[33m8501818[m HEAD@{20}: Branch: renamed refs/heads/master to refs/heads/Main
+[33m8501818[m HEAD@{22}: commit (initial): feat: Adicionando enum Perfil

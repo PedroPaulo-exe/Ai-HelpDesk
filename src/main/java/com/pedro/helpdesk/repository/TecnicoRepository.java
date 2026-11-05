@@ -1,4 +1,10 @@
 package com.pedro.helpdesk.repository;
 
-public interface TecnicoRepository {
+import com.pedro.helpdesk.classes.Pessoa;
+import com.pedro.helpdesk.classes.Tecnico;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface TecnicoRepository extends JpaRepository<Pessoa, Integer> {
+
+
 }
