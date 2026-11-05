@@ -19,7 +19,7 @@ public class DevConfig {
     private String value;
 
     public boolean instanciaDB(){
-        if(value.equals("create")){
+        if("create".equals(this.value)){
             this.dbService.instanciaDB();
         }
         return false;
