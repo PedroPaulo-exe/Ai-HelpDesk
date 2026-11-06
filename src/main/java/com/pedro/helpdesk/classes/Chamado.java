@@ -19,7 +19,7 @@ public class Chamado implements Serializable {
     @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dataFechamento;
     private Prioridade prioridade;
-    private Status Status;
+    private Status status;
     private String titulo;
     private String Observacao;
 
@@ -31,13 +31,17 @@ public class Chamado implements Serializable {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
+    public Chamado(){
+
+    }
+
     public Chamado(Integer id, Prioridade prioridade, Status status, String titulo
                     , String observacao, Tecnico tecnico,
                    Cliente cliente) {
         super();
         this.id = id;
         this.prioridade =  prioridade;
-        Status = status;
+        status = status;
         this.titulo = titulo;
         Observacao = observacao;
         this.cliente = cliente;
@@ -69,11 +73,11 @@ public class Chamado implements Serializable {
     }
 
     public Status getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(Status status) {
-        Status = status;
+        status = status;
     }
 
     public Prioridade getPrioridade() {
