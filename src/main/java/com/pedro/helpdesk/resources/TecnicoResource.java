@@ -2,6 +2,7 @@ package com.pedro.helpdesk.resources;
 
 import com.pedro.helpdesk.Service.TecnicoService;
 import com.pedro.helpdesk.classes.Tecnico;
+import com.pedro.helpdesk.dtos.TecnicoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,10 +20,10 @@ public class TecnicoResource {
     private TecnicoService tecnicoService;
 
     @GetMapping(value = "/{id}")
-    public ResponseEntity<Tecnico> buscarPorId(@PathVariable Integer id){
+    public ResponseEntity<TecnicoDTO> buscarPorId(@PathVariable Integer id){
         Tecnico tecnico = tecnicoService.buscarPorId(id);
 
-        return ResponseEntity.ok().body(tecnico);
+        return ResponseEntity.ok().body(new TecnicoDTO(tecnico));
     }
 
 }
