@@ -2,6 +2,7 @@ package com.pedro.helpdesk.dtos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pedro.helpdesk.classes.Tecnico;
+import com.pedro.helpdesk.enums.Perfil;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -20,6 +21,8 @@ public class TecnicoDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
+
+
     public TecnicoDTO(Tecnico obj){
         super();
         this.id = obj.getId();
@@ -29,8 +32,8 @@ public class TecnicoDTO {
         this.senha = obj.getSenha();
         this.perfis = obj.getPerfis().stream().map(x -> x.getCodigo()).collect(Collectors.toSet());
         this.dataCriacao = obj.getDataCriacao();
-
     }
+
 
     public Integer getId() {
         return id;
@@ -72,8 +75,8 @@ public class TecnicoDTO {
         this.email = email;
     }
 
-    public Set<Integer> getPerfis() {
-        return perfis;
+    public Set<Perfil> getPerfis() {
+        return perfis.stream().map(Perfil::toEnum).collect(Collectors.toSet());
     }
 
     public void setPerfis(Set<Integer> perfis) {
