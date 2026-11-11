@@ -21,6 +21,11 @@ public class TecnicoDTO {
     @JsonFormat(pattern = "dd/MM/yyyy")
     protected LocalDate dataCriacao = LocalDate.now();
 
+    public TecnicoDTO() {
+        super();
+        addPerfil(Perfil.TECNICO);
+    }
+
 
 
     public TecnicoDTO(Tecnico obj){
@@ -79,8 +84,8 @@ public class TecnicoDTO {
         return perfis.stream().map(Perfil::toEnum).collect(Collectors.toSet());
     }
 
-    public void setPerfis(Set<Integer> perfis) {
-        this.perfis = perfis;
+    public void addPerfil(Perfil perfis) {
+        this.perfis.add(perfis.getCodigo());
     }
 
     public LocalDate getDataCriacao() {
