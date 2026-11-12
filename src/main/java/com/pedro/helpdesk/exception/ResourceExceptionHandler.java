@@ -16,7 +16,16 @@ public class ResourceExceptionHandler   {
                                                        HttpServletRequest request    ) {
 
         StanderError error = new StanderError(System.currentTimeMillis(), HttpStatus.NOT_FOUND.value(),
-                "registro não encontrado", request.getRequestURI());
+               ex.getMessage() , request.getRequestURI());
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    @ExceptionHandler(DataIntegrityViolationException.class)
+    public ResponseEntity<StanderError> objectNotFound(DataIntegrityViolationException ex,
+                                                       HttpServletRequest request    ) {
+
+        StanderError error = new StanderError(System.currentTimeMillis(), HttpStatus.BAD_REQUEST.value(),
+               ex.getMessage() , request.getRequestURI());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 }
