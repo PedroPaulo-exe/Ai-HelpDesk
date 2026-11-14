@@ -10,7 +10,7 @@ public class StanderError implements Serializable {
     private String error;
     private String path;
 
-    public StanderError() {
+    public StanderError(Long timestamp, Integer status, String error) {
         super();
     }
     public StanderError(Long timestamp, Integer status, String error, String path) {
