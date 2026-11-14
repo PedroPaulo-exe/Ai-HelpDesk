@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.pedro.helpdesk.classes.Tecnico;
 import com.pedro.helpdesk.enums.Perfil;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDate;
 import java.util.HashSet;
@@ -12,9 +13,13 @@ import java.util.stream.Collectors;
 
 public class TecnicoDTO {
     protected Integer id;
+    @NotNull(message = "Nome é obrigatório")
     protected String nome;
+    @NotNull(message = "Cpf é obrigatório")
     protected String cpf;
+    @NotNull(message = "Email é o obrigatório")
     protected String email;
+    @NotNull(message = "Senha é o obrigatório")
     protected String senha;
 
     protected Set<Integer> perfis = new HashSet<>();
