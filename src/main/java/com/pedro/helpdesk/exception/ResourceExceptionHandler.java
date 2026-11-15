@@ -31,17 +31,5 @@ public class ResourceExceptionHandler   {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
     }
 
-    @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<StanderError> validationError(MethodArgumentNotValidException ex,
-                                                        HttpServletRequest request) {
 
-        ValidationError error = new ValidationError(System.currentTimeMillis(),
-                HttpStatus.BAD_REQUEST.value(), "Erro na validacao", request.getRequestURI());
-
-        for (FieldError f : ex.getBindingResult().getFieldErrors()) {
-            error.addErros(f.getField(), f.getDefaultMessage());
-        }
-
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
-    }
 }

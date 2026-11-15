@@ -17,9 +17,9 @@ public class TecnicoDTO {
     protected String nome;
     @NotNull(message = "Cpf é obrigatório")
     protected String cpf;
-    @NotNull(message = "Email é o obrigatório")
+    @NotNull(message = "Email é obrigatório")
     protected String email;
-    @NotNull(message = "Senha é o obrigatório")
+    @NotNull(message = "Senha é obrigatório")
     protected String senha;
 
     protected Set<Integer> perfis = new HashSet<>();
