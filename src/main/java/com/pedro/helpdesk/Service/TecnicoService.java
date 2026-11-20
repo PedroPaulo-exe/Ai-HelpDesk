@@ -59,5 +59,8 @@ public class TecnicoService {
             throw new DataIntegrityViolationException("Email já cadastrado no sistema");
         }
     }
+    private void deletarTecnico(Integer id){
+        Tecnico tecnicoLocalizo = buscarPorId(id);
+    }
 
 }
