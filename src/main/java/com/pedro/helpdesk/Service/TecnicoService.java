@@ -7,6 +7,7 @@ import com.pedro.helpdesk.exception.DataIntegrityViolationException;
 import com.pedro.helpdesk.exception.ObjectNotFoundException;
 import com.pedro.helpdesk.repository.PessoaRepository;
 import com.pedro.helpdesk.repository.TecnicoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +40,14 @@ public class TecnicoService {
         return tecnicoRepository.save(novoTecnico);
 
     }
+
+    public Tecnico atualizarTecnico(Integer id, @Valid TecnicoDTO tecnicoDTO){
+        tecnicoDTO.setId(id);
+        Tecnico tecnicoLocalizado = buscarPorId(id);
+        isCpfEmailExiste(tecnicoDTO);
+        tecnicoLocalizado = new Tecnico(tecnicoDTO);
+        return tecnicoRepository.save(tecnicoLocalizado);
+    }
     private void isCpfEmailExiste (TecnicoDTO tecnicoDTO){
         Optional<Pessoa> registroCadastrado = pessoaRepository.findByCpf(tecnicoDTO.getCpf());
         if(registroCadastrado.isPresent() && registroCadastrado.get().getId() != tecnicoDTO.getId() ){
@@ -50,4 +59,5 @@ public class TecnicoService {
             throw new DataIntegrityViolationException("Email já cadastrado no sistema");
         }
     }
+
 }
