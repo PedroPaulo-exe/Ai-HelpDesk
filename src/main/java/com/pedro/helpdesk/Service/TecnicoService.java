@@ -59,8 +59,12 @@ public class TecnicoService {
             throw new DataIntegrityViolationException("Email já cadastrado no sistema");
         }
     }
-    private void deletarTecnico(Integer id){
-        Tecnico tecnicoLocalizo = buscarPorId(id);
+    public void deletarTecnico(Integer id){
+        Tecnico tecnicoLocalizado = buscarPorId(id);
+        if ( tecnicoLocalizado.getChamado().size() > 0){
+            throw new DataIntegrityViolationException("Tecnico possui chamados relacionados, não podendo ser excluido");
+        }
+        tecnicoRepository.deleteById(id);
     }
 
 }
